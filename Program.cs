@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-/*
+
 Console.WriteLine("which music instrument do you like?");
 //Console.ReadLine();
 string instrument  = Console.ReadLine() ?? "";
@@ -15,7 +15,7 @@ Console.WriteLine("whats your first name?");
 //Console.ReadLine();
 string firstname = Console.ReadLine() ?? "";
 Console.WriteLine(firstname.ToUpper() + " " + lastname.ToUpper() + " joined the firm " );
-*/
+
 
 
 Console.WriteLine("whats your full name?");
