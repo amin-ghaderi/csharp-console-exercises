@@ -1,6 +1,304 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+/*
+// ==========================================
+// Exercise: Methods
+// Exercise Number: 1
+// Description: Move the password checking code
+// into a separate method and call the method
+// from the main program.
+// Date: 16-03-2026
+// ==========================================
 
+CheckPassword();
+
+void CheckPassword()
+{
+    Console.WriteLine("Enter your password:");
+    string password = Console.ReadLine();
+
+    bool passwordMatch = password.ToLower() == "pencil";
+
+    if (passwordMatch)
+    {
+        Console.WriteLine("Success");
+    }
+    else
+    {
+        Console.WriteLine("Login failed");
+    }
+}
+
+// ==========================================
+// Course: C# Programming
+// Topic: Methods
+// Exercise: 2
+// Author: Amin
+// Date: 16-03-2026
+// Description:
+// Move the highlighted login code into a
+// separate method and call the method
+// from the main program.
+// ==========================================
+
+
+// user database
+string[][] users =
+[
+    ["john", "plate"],
+    ["michelle", "bike"],
+    ["lisa", "pencil"]
+];
+
+// call method
+CheckLogin(users);
+
+
+
+void CheckLogin(string[][] users)
+{
+    Console.WriteLine("Enter your username:");
+    string username = Console.ReadLine();
+
+    Console.WriteLine("Enter your password:");
+    string password = Console.ReadLine();
+
+    int userMatch = -1;
+
+    for (int i = 0; i < users.Length; i++)
+    {
+        if (users[i][0] == username.ToLower())
+        {
+            userMatch = i;
+        }
+    }
+
+    bool passwordMatch = false;
+
+    if (userMatch > -1)
+    {
+        passwordMatch = password.ToLower() == users[userMatch][1];
+    }
+
+    if (passwordMatch)
+    {
+        Console.WriteLine("Success");
+    }
+    else
+    {
+        Console.WriteLine("Login failed");
+    }
+}
+
+// ==========================================
+// Course: C# Programming
+// Topic: Methods
+// Exercise: 3
+// Author: Amin
+// Date: 16-03-2026
+// Description:
+// Break the login code into several methods
+// and call them from the main program.
+// ==========================================
+
+
+// user database
+string[][] users =
+[
+    ["john", "plate"],
+    ["michelle", "bike"],
+    ["lisa", "pencil"]
+];
+
+string username = GetUsername();
+string password = GetPassword();
+
+int userMatch = FindUser(users, username);
+
+bool passwordMatch = CheckPassword(users, userMatch, password);
+
+ShowResult(passwordMatch);
+
+
+
+// ==========================================
+// GET USERNAME
+// Ask user for username
+// ==========================================
+
+string GetUsername()
+{
+    Console.WriteLine("Enter your username:");
+    return Console.ReadLine();
+}
+
+
+
+// ==========================================
+// GET PASSWORD
+// Ask user for password
+// ==========================================
+
+string GetPassword()
+{
+    Console.WriteLine("Enter your password:");
+    return Console.ReadLine();
+}
+
+
+
+// ==========================================
+// FIND USER
+// Search username in user array
+// ==========================================
+
+int FindUser(string[][] users, string username)
+{
+    int userMatch = -1;
+
+    for (int i = 0; i < users.Length; i++)
+    {
+        if (users[i][0] == username.ToLower())
+        {
+            userMatch = i;
+        }
+    }
+
+    return userMatch;
+}
+
+
+
+// ==========================================
+// CHECK PASSWORD
+// Compare entered password with stored one
+// ==========================================
+
+bool CheckPassword(string[][] users, int userMatch, string password)
+{
+    bool passwordMatch = false;
+
+    if (userMatch > -1)
+    {
+        passwordMatch = password.ToLower() == users[userMatch][1];
+    }
+
+    return passwordMatch;
+}
+
+
+
+// ==========================================
+// SHOW RESULT
+// Display login result
+// ==========================================
+
+void ShowResult(bool passwordMatch)
+{
+    if (passwordMatch)
+    {
+        Console.WriteLine("Success");
+    }
+    else
+    {
+        Console.WriteLine("Login failed");
+    }
+}
+
+
+
+// ==========================================
+// Course: C# Programming
+// Topic: Methods
+// Exercise: 4
+// Author: Amin
+// Date: 16-03-2026
+// Description:
+// Write a method that takes a string array
+// and returns the length of the longest string.
+// ==========================================
+
+
+// sample array
+string[] words = { "cat", "computer", "book", "phone" };
+
+int longestLength = GetLongestLength(words);
+
+Console.WriteLine("Longest length: " + longestLength);
+
+
+
+// ==========================================
+// GET LONGEST STRING LENGTH
+// Find the longest word in array
+// ==========================================
+
+int GetLongestLength(string[] words)
+{
+    int maxLength = 0;
+
+    for (int i = 0; i < words.Length; i++)
+    {
+        int length = words[i].Length;
+
+        if (length > maxLength)
+        {
+            maxLength = length;
+        }
+    }
+
+    return maxLength;
+}
+
+*/
+// ==========================================
+// Course: C# Programming
+// Topic: Methods
+// Exercise: 5
+// Author: Amin
+// Date: 16-03-2026
+// Description:
+// Write a method that takes three integers,
+// adds the first two numbers and compares
+// the result with the third number.
+// ==========================================
+
+
+// sample numbers
+bool result = CompareNumbers(4, 5, 7);
+
+Console.WriteLine(result);
+
+
+
+// ==========================================
+// COMPARE NUMBERS
+// Add first two numbers and compare with third
+// ==========================================
+
+bool CompareNumbers(int a, int b, int c)
+{
+    int sum = a + b;
+
+    if (sum > c)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
 // ==========================================
 // COFFEE SHOP ORDER SYSTEM 2026-03-13
 // Multi Conditional Flow Exercise
