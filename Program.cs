@@ -1,7 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-// 2026-03-17 class exercises on methods
+
+// 2026-03-17 class exercises on classes and objects
+
+
+
+Employee Amin = new Employee(20000m);
+Employee Tobias = new Employee(50000m);
+
+Console.WriteLine($"Amin Tax: {Amin.IncomeTax()}");
+Console.WriteLine($"Tobias Tax: {Tobias.IncomeTax()}");
 
 class Employee
 {
@@ -9,17 +18,11 @@ class Employee
 
     public Employee()
     {
-        salary = 0;
     }
 
     public Employee(decimal salary)
     {
         this.salary = salary;
-    }
-
-    private int VacationDays()
-    {
-        return 5;
     }
 
     public decimal IncomeTax()
@@ -28,25 +31,12 @@ class Employee
         decimal tax = salary * 0.3m * (20 - vacationDays);
         return tax;
     }
-}
 
-class Program
-{
-    static void Main(string[] args)
+    private int VacationDays()
     {
-        Employee Amin = new Employee(20000);
-        Employee Tobias = new Employee(50000);
-
-        Console.WriteLine($"Amin: {Amin.IncomeTax()}");
-        Console.WriteLine($"Tobias: {Tobias.IncomeTax()}");
-
-        Console.ReadLine();
+        return 5;
     }
 }
-
-
-
-
 
 
 /*
@@ -59,30 +49,31 @@ class Program
 // Date: 16-03-2026
 // ==========================================
 
-CheckPassword();
-
-void CheckPassword()
+// Method
+bool CheckPassword(string password)
 {
-    Console.WriteLine("Enter your password:");
-    string password = Console.ReadLine();
+    return password.ToLower() == "pencil";
+}
 
-    bool passwordMatch = password.ToLower() == "pencil";
+// Main code
+Console.WriteLine("Enter your password:");
+string password = Console.ReadLine() ?? "";
 
-    if (passwordMatch)
-    {
-        Console.WriteLine("Success");
-    }
-    else
-    {
-        Console.WriteLine("Login failed");
-    }
+bool passwordMatch = CheckPassword(password);
+
+if (passwordMatch)
+{
+    Console.WriteLine("Success");
+}
+else
+{
+    Console.WriteLine("Login failed");
 }
 
 // ==========================================
 // Course: C# Programming
 // Topic: Methods
 // Exercise: 2
-// Author: Amin
 // Date: 16-03-2026
 // Description:
 // Move the highlighted login code into a
@@ -91,27 +82,10 @@ void CheckPassword()
 // ==========================================
 
 
-// user database
-string[][] users =
-[
-    ["john", "plate"],
-    ["michelle", "bike"],
-    ["lisa", "pencil"]
-];
 
-// call method
-CheckLogin(users);
-
-
-
-void CheckLogin(string[][] users)
+// Method
+int FindUser(string[][] users, string username)
 {
-    Console.WriteLine("Enter your username:");
-    string username = Console.ReadLine();
-
-    Console.WriteLine("Enter your password:");
-    string password = Console.ReadLine();
-
     int userMatch = -1;
 
     for (int i = 0; i < users.Length; i++)
@@ -122,21 +96,39 @@ void CheckLogin(string[][] users)
         }
     }
 
-    bool passwordMatch = false;
+    return userMatch;
+}
 
-    if (userMatch > -1)
-    {
-        passwordMatch = password.ToLower() == users[userMatch][1];
-    }
+// Main code
+string[][] users =
+[
+    ["john", "plate"],
+    ["michelle", "bike"],
+    ["lisa", "pencil"]
+];
 
-    if (passwordMatch)
-    {
-        Console.WriteLine("Success");
-    }
-    else
-    {
-        Console.WriteLine("Login failed");
-    }
+Console.WriteLine("Enter your username:");
+string username = Console.ReadLine() ?? "";
+
+Console.WriteLine("Enter your password:");
+string password = Console.ReadLine() ?? "";
+
+int userMatch = FindUser(users, username);
+
+bool passwordMatch = false;
+
+if (userMatch > -1)
+{
+    passwordMatch = password.ToLower() == users[userMatch][1];
+}
+
+if (passwordMatch)
+{
+    Console.WriteLine("Success");
+}
+else
+{
+    Console.WriteLine("Login failed");
 }
 
 // ==========================================
