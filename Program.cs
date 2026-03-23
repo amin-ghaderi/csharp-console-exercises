@@ -1,6 +1,65 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+// 2026-03-23 list and flexible conections exercises No. 2 , 3
+
+List<Tool> tools = new List<Tool>()
+{
+    new Tool() { Brand = "Bosch", Name = "Drill" },
+    new Tool() { Brand = "Makita", Name = "Grinder" },
+    new Tool() { Brand = "DeWalt", Name = "Driver" }
+};
+
+tools.RemoveAt(1);
+
+foreach (Tool tool in tools)
+{
+    Console.WriteLine($"Brand: {tool.Brand}");
+}
+
+tools.Add(new Tool() { Brand = "Hilti", Name = "Hammer" });
+tools.Add(new Tool() { Brand = "Milwaukee", Name = "Saw" });
+
+var found = tools.Find(t => t.Name == "Hammer");
+if (found != null)
+{
+    Console.WriteLine($"FOUND -> Brand: {found.Brand}, Name: {found.Name}");
+}
+
+foreach (Tool tool in tools)
+{
+    Console.WriteLine($"Brand: {tool.Brand}, Name: {tool.Name}");
+}
+
+
+
+// 2026-03-23 list and flexible conections exercises No. 1
+
+
+
+List<string> words = new List<string>()
+{
+    "Tehran",
+    "Stockholm",
+    "Paris",
+    "Berlin"
+};
+
+words.Sort();
+
+foreach (string word in words)
+{
+    Console.WriteLine(word);
+}
+
+class Tool
+{
+    public string Brand="";
+    public string Name="";
+}
+
+
+/*
 
 // 2026-03-17 class exercises on classes and objects
 
