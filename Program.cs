@@ -1,6 +1,91 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+// 2026-03-24 Exception Handling no. 3
+
+
+
+int[] numbers = { 10, 0 };
+
+//index error
+try
+{
+    int num = numbers[2];
+}
+catch (Exception ex)
+{
+    Console.WriteLine("First error: " + ex.Message);
+}
+
+//divide error
+try
+{
+    int result = numbers[0] / numbers[1];
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Second error: " + ex.Message);
+}
+
+// 2026-03-24 Exception Handling no. 2
+
+
+int tryNumber = 0;
+
+try
+{
+    Console.WriteLine("Enter a Zero!!:");
+    string tryEntry = Console.ReadLine() ?? "";
+    tryNumber = 100 / int.Parse(tryEntry);
+}
+
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine("Message: " + ex.Message);
+    // Console.WriteLine("Source: " + ex.Source);
+}
+
+
+// 2026-03-24 Exception Handling no. 1
+
+
+int tryNumber1 = 0;
+
+try
+{
+    Console.WriteLine("Enter a number:");
+    string tryEntry = Console.ReadLine() ?? "";
+    tryNumber1 = int.Parse(tryEntry);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Message: " + ex.Message);
+    // Console.WriteLine("Source: " + ex.Source);
+}
+
+
+
+
+
+
+/*
+// 2026-03-23 Parsing
+
+Console.WriteLine("Enter a number:");
+string input = Console.ReadLine() ?? "";
+int age = int.TryParse(input, out int parsedAge) ? parsedAge : 0;
+
+Console.WriteLine(age + 25);
+
+
+string dateText = "2026-03-23  12:30:45";
+DateTime date = DateTime.Parse(dateText);
+Console.WriteLine(date);
+
+string isActiveText = "true";
+bool isActive = bool.TryParse(isActiveText, out bool parsedIsActive) ? parsedIsActive : false;
+Console.WriteLine(isActive);
+
 // 2026-03-23 list and flexible conections exercises No. 2 , 3
 
 List<Tool> tools = new List<Tool>()
