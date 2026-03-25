@@ -1,6 +1,29 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+// 2026-03-25 Unit Testing Exercise
+
+
+public class Calculator
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // 2026-03-24 Exception Handling no. 3
 
 
